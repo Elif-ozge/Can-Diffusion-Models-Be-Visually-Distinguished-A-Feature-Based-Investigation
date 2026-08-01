@@ -111,5 +111,5 @@ graph TD
 
 ## Dataset & References. 
 
-* **Dataset Source:** Synthbuster Benchmark Dataset ([Zenodo Link](https://zenodo.org/records/10066460))
-* **Primary Reference:** Bammey, Q. (2024). *Synthbuster: Towards Detection of Diffusion Model Generated Images*. IEEE Open Journal of Signal Processing.
+* **Dataset:** Synthbuster Benchmark Dataset ([Zenodo Link](https://zenodo.org/records/10066460))
+* **Primary Reference:**  Q. Bammey, "Synthbuster: Towards Detection of Diffusion Model Generated Images," in *IEEE Open Journal of Signal Processing*, vol. 5, pp. 1-9, 2024, doi: [10.1109/OJSP.2023.3337714](https://doi.org/10.1109/OJSP.2023.3337714).
