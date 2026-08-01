@@ -1,16 +1,10 @@
 # Can Diffusion Models Be Visually Distinguished? A Feature-Based Investigation
 
-This repository contains the official implementation and research code for investigating unique visual "footprints" left by popular text-to-image diffusion models. 
-
-By analyzing hand-crafted visual characteristics (color, contrast, sharpness, edge density, etc.), this project evaluates machine learning and deep learning approaches to trace an AI-generated image back to its originating model.
-
----
-
 ## Abstract
 
-As synthetic content proliferates, identifying the source architecture of AI-generated media has become crucial for digital forensics and ethical AI transparency. Utilizing the open-source **Synthbuster** benchmark dataset, this project extracts multi-dimensional image features across three major models: **DALL-E 2**, **Midjourney v5**, and **Stable Diffusion 1.4**. 
+As synthetic content proliferates, identifying the source architecture of AI-generated media has become crucial for digital forensics and ethical AI transparency. This repository investigates unique visual "footprints" left by popular text-to-image diffusion models (**DALL-E 2**, **Midjourney v5**, and **Stable Diffusion 1.4**) by analyzing hand-crafted statistical and structural characteristics (color distribution, contrast, sharpness, edge density, etc.).
 
-Statistical significance was confirmed via ANOVA, followed by Recursive Feature Elimination (RFE) to isolate the top 10 most discriminative attributes. Classifiers including Support Vector Machines (SVM), Random Forests (RF), and a custom Deep Neural Network (DNN) were trained and evaluated.
+Utilizing the open-source **Synthbuster** benchmark dataset, multi-dimensional visual features were extracted and validated via ANOVA hypothesis testing. Recursive Feature Elimination (RFE) was subsequently applied to isolate the top 10 most discriminative attributes, which were then evaluated across Support Vector Machines (SVM), Random Forests (RF), and a custom Deep Neural Network (DNN) to trace generated images back to their originating models.
 
 ---
 
