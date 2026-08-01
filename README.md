@@ -8,22 +8,6 @@ Utilizing the open-source **Synthbuster** benchmark dataset, multi-dimensional v
 
 ---
 
-## Key Findings & Results
-
-* **Feasibility:** Diffusion architectures leave distinct, measurable statistical and structural signatures in their outputs.
-* **Best Performer:** The **Deep Neural Network (DNN)** achieved the highest performance with an overall accuracy of **79.17%**, outperforming traditional ensemble and margin-based models.
-* **Top Discriminative Features:** Feature importance analysis highlighted color distribution, contrast variance (luminance channel), sharpness (Laplacian variance), and edge density (Canny filtering) as major indicators.
-
-### Model Comparison Summary
-
-| Model / Classifier | Accuracy | Precision (Macro Avg) | Recall (Macro Avg) | F1-Score (Macro Avg) |
-| :--- | :---: | :---: | :---: | :---: |
-| **Deep Neural Network (DNN)** | **79.17%** | **0.79** | **0.79** | **0.79** |
-| **Random Forest (RF)** | 79.00% | 0.79 | 0.79 | 0.79 |
-| **Support Vector Machine (SVM - RBF)** | 75.00% | 0.76 | 0.75 | 0.75 |
-
----
-
 ## Feature Extraction 
 
 The feature engineering workflow processes raw `.jpg` and `.png` images into tabular representations capturing:
@@ -98,6 +82,24 @@ graph TD
     style I2 fill:#f1f5f9,stroke:#64748b,color:#334155
     style I3 fill:#22c55e,stroke:#15803d,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
+
+---
+
+### Model Comparison Summary
+
+| Model / Classifier | Accuracy | Precision (Macro Avg) | Recall (Macro Avg) | F1-Score (Macro Avg) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Deep Neural Network (DNN)** | **79.17%** | **0.79** | **0.79** | **0.79** |
+| **Random Forest (RF)** | 79.00% | 0.79 | 0.79 | 0.79 |
+| **Support Vector Machine (SVM - RBF)** | 75.00% | 0.76 | 0.75 | 0.75 |
+
+---
+
+## Key Findings & Results
+
+* **Feasibility:** Diffusion architectures leave distinct, measurable statistical and structural signatures in their outputs.
+* **Best Performer:** The **Deep Neural Network (DNN)** achieved the highest performance with an overall accuracy of **79.17%**, outperforming traditional ensemble and margin-based models.
+* **Top Discriminative Features:** Feature importance analysis highlighted color distribution, contrast variance (luminance channel), sharpness (Laplacian variance), and edge density (Canny filtering) as major indicators.
 
 ---
 
