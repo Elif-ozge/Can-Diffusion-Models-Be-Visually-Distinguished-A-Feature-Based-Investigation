@@ -42,47 +42,64 @@ The feature engineering workflow processes raw `.jpg` and `.png` images into tab
 ---
 
 ## Methodology 
+## Methodology 
+
 ```mermaid
 graph TD
     %% Dataset & Preprocessing
     subgraph STEP1["1. Data Acquisition & Preprocessing"]
-        A["Synthbuster Dataset<br/><i>(DALL-E 2, Midjourney v5, Stable Diffusion 1.4)</i>"] --> B["Image Processing Pipeline<br/><i>(Feature Extraction)</i>"]
+        A[" Synthbuster Dataset<br/><i>(DALL-E 2, Midjourney v5, Stable Diffusion 1.4)</i>"] --> B[" Feature Extraction Pipeline"]
     end
 
     %% Feature Extraction Breakdown
     subgraph STEP2["2. Visual Feature Engineering"]
-        B --> C1["<b>Color & Saturation</b><br/>HSV Range, Dominant Colors"]
-        B --> C2["<b>Luminance & Contrast</b><br/>Brightness, Std Dev of Luminance"]
-        B --> C3["<b>Structure & Symmetry</b><br/>Structural Similarity SSIM"]
-        B --> C4["<b>Detail & Texture</b><br/>Laplacian Sharpness, Canny Edge Density"]
+        B --> C1[" <b>Color & Saturation</b><br/>HSV Range, Dominant Colors"]
+        B --> C2[" <b>Luminance & Contrast</b><br/>Brightness, Std Dev of Luminance"]
+        B --> C3[" <b>Structure & Symmetry</b><br/>Structural Similarity SSIM"]
+        B --> C4[" <b>Detail & Texture</b><br/>Laplacian Sharpness, Edge Density"]
     end
 
     %% Feature Selection & Normalization
     subgraph STEP3["3. Feature Selection & Normalization"]
-        C1 & C2 & C3 & C4 --> D["Data Cleaning & Filtering<br/><i>(Remove Zero-Variance Features)</i>"]
-        D --> E["ANOVA Hypothesis Testing<br/><i>(p < 0.05 Verification)</i>"]
-        E --> F["Recursive Feature Elimination (RFE)<br/><i>(Select Top 10 Features)</i>"]
-        F --> G["Z-Score Standardization<br/><i>(StandardScaler)</i>"]
+        C1 & C2 & C3 & C4 --> D[" Data Cleaning & Filtering<br/><i>(Remove Zero-Variance Features)</i>"]
+        D --> E[" ANOVA Hypothesis Testing<br/><i>(p < 0.05 Verification)</i>"]
+        E --> F[" Recursive Feature Elimination (RFE)<br/><i>(Select Top 10 Features)</i>"]
+        F --> G[" Z-Score Standardization<br/><i>(StandardScaler)</i>"]
     end
 
     %% Modeling & Classification
     subgraph STEP4["4. Model Training & Evaluation"]
-        G --> H1["SVM Classifier<br/><i>(RBF Kernel)</i>"]
-        G --> H2["Random Forest<br/><i>(Ensemble Trees)</i>"]
-        G --> H3["Deep Neural Network<br/><i>(Dense Keras Sequential)</i>"]
+        G --> H1[" SVM Classifier<br/><i>(RBF Kernel)</i>"]
+        G --> H2[" Random Forest<br/><i>(Ensemble Trees)</i>"]
+        G --> H3[" Deep Neural Network<br/><i>(Dense Keras Sequential)</i>"]
 
         H1 --> I1["Accuracy: 75.0%"]
         H2 --> I2["Accuracy: 79.0%"]
-        H3 --> I3["<b>Accuracy: 79.17% (Best)</b>"]
+        H3 --> I3[" <b>Accuracy: 79.17% (Best)</b>"]
     end
 
-    %% Styling
-    style STEP1 fill:#f8f9fa,stroke:#d1d5db,stroke-width:1px
-    style STEP2 fill:#f0f7ff,stroke:#93c5fd,stroke-width:1px
-    style STEP3 fill:#fefce8,stroke:#fde047,stroke-width:1px
-    style STEP4 fill:#f0fdf4,stroke:#86efac,stroke-width:1px
-    style H3 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
-    style I3 fill:#16a34a,stroke:#15803d,color:#ffffff,font-weight:bold
+    %% Transparent background for subgraphs
+    style STEP1 fill:none,stroke:#6366f1,stroke-width:2px,stroke-dasharray: 5 5,color:#6366f1
+    style STEP2 fill:none,stroke:#06b6d4,stroke-width:2px,stroke-dasharray: 5 5,color:#06b6d4
+    style STEP3 fill:none,stroke:#f59e0b,stroke-width:2px,stroke-dasharray: 5 5,color:#f59e0b
+    style STEP4 fill:none,stroke:#10b981,stroke-width:2px,stroke-dasharray: 5 5,color:#10b981
+
+    %% Colorful Node Styles
+    style A fill:#e0e7ff,stroke:#4338ca,stroke-width:2px,color:#312e81
+    style B fill:#cfffe5,stroke:#059669,stroke-width:2px,color:#064e3b
+
+    style C1 fill:#ffe4e6,stroke:#e11d48,stroke-width:2px,color:#881337
+    style C2 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f
+    style C3 fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e
+    style C4 fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#581c87
+
+    style D fill:#fef3c7,stroke:#b45309,stroke-width:1.5px,color:#78350f
+    style E fill:#fed7aa,stroke:#ea580c,stroke-width:1.5px,color:#7c2d12
+    style F fill:#fde68a,stroke:#d97706,stroke-width:1.5px,color:#78350f
+    style G fill:#fef08a,stroke:#ca8a04,stroke-width:1.5px,color:#713f12
+
+    style H1 fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e
+    style H2 fill:#dcfce7,stroke
 ```
 
 ---
