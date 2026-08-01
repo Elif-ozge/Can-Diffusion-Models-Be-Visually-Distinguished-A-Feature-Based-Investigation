@@ -42,15 +42,52 @@ The feature engineering workflow processes raw `.jpg` and `.png` images into tab
 ---
 
 ## Methodology 
+```mermaid
+graph TD
+    %% Dataset & Preprocessing
+    subgraph STEP1["1. Data Acquisition & Preprocessing"]
+        A["Synthbuster Dataset<br/><i>(DALL-E 2, Midjourney v5, Stable Diffusion 1.4)</i>"] --> B["Image Processing Pipeline<br/><i>(Feature Extraction)</i>"]
+    end
 
-1. **Data Acquisition:** Benchmark images sourced from the open-source **Synthbuster** dataset.
-2. **Preprocessing & Filtering:** Feature cleanup to remove zero-variance attributes, standardizing numerical vectors using `StandardScaler`.
-3. **Feature Selection:** ANOVA test for feature variance validation, combined with **Recursive Feature Elimination (RFE)** for sub-feature selection.
-4. **Classification & Evaluation:** Multi-class classification evaluated using precision, recall, F1-score, and confusion matrices.
+    %% Feature Extraction Breakdown
+    subgraph STEP2["2. Visual Feature Engineering"]
+        B --> C1["<b>Color & Saturation</b><br/>HSV Range, Dominant Colors"]
+        B --> C2["<b>Luminance & Contrast</b><br/>Brightness, Std Dev of Luminance"]
+        B --> C3["<b>Structure & Symmetry</b><br/>Structural Similarity SSIM"]
+        B --> C4["<b>Detail & Texture</b><br/>Laplacian Sharpness, Canny Edge Density"]
+    end
+
+    %% Feature Selection & Normalization
+    subgraph STEP3["3. Feature Selection & Normalization"]
+        C1 & C2 & C3 & C4 --> D["Data Cleaning & Filtering<br/><i>(Remove Zero-Variance Features)</i>"]
+        D --> E["ANOVA Hypothesis Testing<br/><i>(p < 0.05 Verification)</i>"]
+        E --> F["Recursive Feature Elimination (RFE)<br/><i>(Select Top 10 Features)</i>"]
+        F --> G["Z-Score Standardization<br/><i>(StandardScaler)</i>"]
+    end
+
+    %% Modeling & Classification
+    subgraph STEP4["4. Model Training & Evaluation"]
+        G --> H1["SVM Classifier<br/><i>(RBF Kernel)</i>"]
+        G --> H2["Random Forest<br/><i>(Ensemble Trees)</i>"]
+        G --> H3["Deep Neural Network<br/><i>(Dense Keras Sequential)</i>"]
+
+        H1 --> I1["Accuracy: 75.0%"]
+        H2 --> I2["Accuracy: 79.0%"]
+        H3 --> I3["<b>Accuracy: 79.17% (Best)</b>"]
+    end
+
+    %% Styling
+    style STEP1 fill:#f8f9fa,stroke:#d1d5db,stroke-width:1px
+    style STEP2 fill:#f0f7ff,stroke:#93c5fd,stroke-width:1px
+    style STEP3 fill:#fefce8,stroke:#fde047,stroke-width:1px
+    style STEP4 fill:#f0fdf4,stroke:#86efac,stroke-width:1px
+    style H3 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+    style I3 fill:#16a34a,stroke:#15803d,color:#ffffff,font-weight:bold
+```
 
 ---
 
-## Dataset & References
+## Dataset & References. 
 
-* **Dataset Source:** Synthbuster Benchmark Dataset ([Zenodo Link](https://zenodo.org/records/10066047))
+* **Dataset Source:** Synthbuster Benchmark Dataset ([Zenodo Link](https://zenodo.org/records/10066460))
 * **Primary Reference:** Bammey, Q. (2024). *Synthbuster: Towards Detection of Diffusion Model Generated Images*. IEEE Open Journal of Signal Processing.
