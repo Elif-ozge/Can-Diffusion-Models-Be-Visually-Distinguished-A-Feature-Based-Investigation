@@ -36,8 +36,6 @@ The feature engineering workflow processes raw `.jpg` and `.png` images into tab
 ---
 
 ## Methodology 
-## Methodology 
-
 ```mermaid
 graph TD
     %% Dataset & Preprocessing
