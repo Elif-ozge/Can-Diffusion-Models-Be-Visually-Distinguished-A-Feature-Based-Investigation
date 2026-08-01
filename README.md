@@ -99,7 +99,12 @@ graph TD
     style G fill:#fef08a,stroke:#ca8a04,stroke-width:1.5px,color:#713f12
 
     style H1 fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e
-    style H2 fill:#dcfce7,stroke
+    style H2 fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    style H3 fill:#fae8ff,stroke:#c026d3,stroke-width:2.5px,color:#701a75
+
+    style I1 fill:#f1f5f9,stroke:#64748b,color:#334155
+    style I2 fill:#f1f5f9,stroke:#64748b,color:#334155
+    style I3 fill:#22c55e,stroke:#15803d,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
 ---
